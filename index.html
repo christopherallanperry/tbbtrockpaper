@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <title>Rock Paper scissors Lizard Spock</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <style>
+      .image {
+        width: 70%;
+      }
+      nav h2 {
+        color: grey;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+      }
+      .images-container {
+        display: flex;
+        /* justify-content: space-between; */
+      }
+      .image-choice {
+        width: 60%;
+        margin: 20px;
+      }
+      .popup {
+        display: none;
+        border: 1px solid black;
+        position: absolute;
+        width: 75%;
+        z-index: 1;
+      }
+      iframe {
+        margin-top: 10px;
+      }
+
+      #mine {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      #scissors,
+      #rock,
+      #paper {
+        display: none;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap  align-items-center">
+          <div class="col-4 pt-1">
+            <a class="text-muted" href="#">More games</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" id="logo" href="#"
+              ><img
+                class="image"
+                src="https://cdn-images-1.medium.com/max/1400/1*JOvf8IhmSCqaT7guHfw3BQ.jpeg"
+            /></a>
+          </div>
+        </div>
+      </header>
+      <nav>
+        <h2>
+          Welocme to this small game, inspired by Sheldon from Big Bang Theory
+        </h2>
+      </nav>
+      <div
+        class="card text-center popup shadow p-3 mb-5 bg-white rounded p-3 mb-2 bg-light text-dark"
+      >
+        <div class="card-body">
+          <h5 class="card-title"><img src="./logopng.png" /></h5>
+          <p class="card-text">
+            In The series, season 2 Episode 8. Sheldo asked his friend for an
+            upgrade of the old game. Where he inserted Lizard and his favorite
+            character Spock to the game. How it works is as follow:Scissors cuts
+            paper, paper covers rock, rock crushes lizard, lizard poisons Spock,
+            Spock smashes scissors, scissors decapitates lizard, lizard eats
+            paper, paper disproves Spock, Spock vaporizes rock, and as it always
+            has, rock crushes scissors."
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/x5Q6-wMx-K8"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </p>
+          <a href="#" class="btn btn-primary" id="gotit">Got it</a>
+        </div>
+      </div>
+      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h2 class="display-4 font-italic">
+            Rock, Paper, Scissors, Lizard, Spock
+            <a id="how-work" href="#">how it works</a>
+          </h2>
+          <p class="lead my-3">
+            This is a a better version of a traditional game that can end in
+            win/lose or tie.
+          </p>
+          <h2>Your choice is:</h2>
+          <div class="images-container">
+            <button id="you-paper" href="">
+              <img
+                class="image-choice"
+                src="https://i.ibb.co/FxRv3TZ/paperme.png"
+              />
+            </button>
+            <button id="you-rock" href="">
+              <img
+                class="image-choice"
+                src="https://i.ibb.co/hZ7hWrS/rock-me.png"
+              />
+            </button>
+            <button id="you-sciccors" href="">
+              <img
+                class="image-choice"
+                src="https://i.ibb.co/vvTndr3/scme.png"
+              />
+            </button>
+          </div>
+          <hr />
+          <h2>my choice is</h2>
+          <div class="images-container " id="mine">
+            <img
+              id="paper"
+              class="image-choice"
+              src="https://i.ibb.co/F57DdkV/paperyou.png"
+            />
+            <img
+              id="rock"
+              class="image-choice"
+              src="https://i.ibb.co/WsfbDQ9/rockyou.png"
+            />
+            <img
+              id="scissors"
+              class="image-choice"
+              src="https://i.ibb.co/x6wqDVp/scyou.png"
+            />
+          </div>
+          <p id="xy"></p>
+          <p class="lead mb-0">
+            <a href="#" class="text-white font-weight-bold"> </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading" id="result"></h4>
+
+        <hr />
+      </div>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $("#logo").click(() => {
+          alert("I hope you will enjoy it");
+        });
+        $("#how-work").click(popup);
+        function popup() {
+          $("div.popup").show(1000);
+        }
+        $("#gotit").click(() => {
+          $("div.popup").hide();
+        });
+        var options = ["rock", "paper", "scissors"];
+
+        $("#you-paper").click(buttonClicked);
+        $("#you-rock").click(buttonClicked);
+        $("#you-sciccors").click(buttonClicked);
+        function buttonClicked() {
+          var disabled = function(item) {
+            $(`#${item}`).hide();
+          };
+          disabled("paper");
+          disabled("rock");
+          disabled("scissors");
+          var computerPlay = function() {
+            return options[Math.floor(Math.random() * 3)];
+          };
+          var x = computerPlay();
+
+          $(`#${x}`).css("display", "flex");
+          $(`#${x}`).css("justifyContent", "center");
+          var result = $("#result");
+          if ($(this) == $(`#you-${x}`)) {
+            $("<p><He mate it's a tie/p>").appendTo("#result");
+          }
+        }
+      });
+    </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
