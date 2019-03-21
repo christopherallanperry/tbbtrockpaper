@@ -31,12 +31,18 @@
         width: 60%;
         margin: 20px;
       }
+      .containers {
+        display: flex;
+      }
       .popup {
+      
         display: none;
-        border: 1px solid black;
-        position: absolute;
-        width: 75%;
-        z-index: 1;
+        position: fixed;
+        z-index: 1000;
+ 
+        width: 50%;
+        margin-left: 5%
+      
       }
       iframe {
         margin-top: 10px;
@@ -49,15 +55,67 @@
       }
       #scissors,
       #rock,
-      #paper {
+      #paper,
+      #spock,
+      #lizard {
+        display: none;
+      }
+      .moreinfotext {
         display: none;
       }
     </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $(document).ready(() => {
+    
+        $("#logo").click(() => {
+          alert("I hope you will enjoy it");
+        });
+        $("#how-work").click(popup);
+        function popup() {
+          $("div.popup").fadeIn(1000);
+        }
+        $("#gotit").click(() => {
+          $("div.popup").slideUp(1000);
+        });
+        var options = ["rock", "paper", "scissors","spock","lizard"];
+
+        $("#you-paper").click(buttonClicked);
+        $("#you-rock").click(buttonClicked);
+        $("#you-sciccors").click(buttonClicked);
+        $("#you-spock").click(buttonClicked);
+        $("#you-lizard").click(buttonClicked);
+        function buttonClicked() {
+          var disabled = function(item) {
+            $(`#${item}`).hide();
+          };
+           $("#result").empty()
+          disabled("paper");
+          disabled("rock");
+          disabled("scissors");
+          disabled("spock");
+          disabled("lizard");
+          var computerPlay = function() {
+            return options[Math.floor(Math.random() * 5)];
+          };
+          var x = computerPlay();
+          $(`#${x}`).css("display", "flex");
+          $(`#${x}`).css("justifyContent", "center");
+          var result = $("#result");
+          if ($(this)== $(`#${x}`)) {
+         $("<p>He mate it's a tie</p>").appendTo("#result");
+          }
+        }
+        $(".btn-info").click(() => {
+          $(".moreinfotext").show(2000);
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -80,19 +138,19 @@
           Welocme to this small game, inspired by Sheldon from Big Bang Theory
         </h2>
       </nav>
-      <div
-        class="card text-center popup shadow p-3 mb-5 bg-white rounded p-3 mb-2 bg-light text-dark"
-      >
-        <div class="card-body">
-          <h5 class="card-title"><img src="./logopng.png" /></h5>
-          <p class="card-text">
-            In The series, season 2 Episode 8. Sheldo asked his friend for an
-            upgrade of the old game. Where he inserted Lizard and his favorite
-            character Spock to the game. How it works is as follow:Scissors cuts
-            paper, paper covers rock, rock crushes lizard, lizard poisons Spock,
-            Spock smashes scissors, scissors decapitates lizard, lizard eats
-            paper, paper disproves Spock, Spock vaporizes rock, and as it always
-            has, rock crushes scissors."
+      <div class="containers">
+        <div class="card text-center popup shadow bg-white ">
+          <div class="card-content">
+            <h5 class="card-title"><img src="./logopng.png" /></h5>
+            <p>
+              In The series, season 2 Episode 8. Sheldo asked his friend for an
+              upgrade of the old game. Where he inserted Lizard and his favorite
+              character Spock to the game. How it works is as follow:Scissors
+              cuts paper, paper covers rock, rock crushes lizard, lizard poisons
+              Spock, Spock smashes scissors, scissors decapitates lizard, lizard
+              eats paper, paper disproves Spock, Spock vaporizes rock, and as it
+              always has, rock crushes scissors."
+            </p>
             <iframe
               width="560"
               height="315"
@@ -101,8 +159,10 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          </p>
-          <a href="#" class="btn btn-primary" id="gotit">Got it</a>
+            <p></p>
+
+            <a href="#" class="btn btn-primary" id="gotit">Got it</a>
+          </div>
         </div>
       </div>
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
@@ -117,43 +177,48 @@
           </p>
           <h2>Your choice is:</h2>
           <div class="images-container">
-            <button id="you-paper" href="">
+            <a id="you-paper">
               <img
                 class="image-choice"
-                src="https://i.ibb.co/FxRv3TZ/paperme.png"
+                src="/paper.png"
               />
-            </button>
-            <button id="you-rock" href="">
+            </a>
+            <a id="you-rock">
               <img
                 class="image-choice"
-                src="https://i.ibb.co/hZ7hWrS/rock-me.png"
+                src="/rock.png"
               />
-            </button>
-            <button id="you-sciccors" href="">
+            </a>
+            <a id="you-sciccors">
               <img
                 class="image-choice"
-                src="https://i.ibb.co/vvTndr3/scme.png"
-              />
-            </button>
+                src="/sc.png"              />
+            </a>
+            <a id="you-spock">
+              <img class="image-choice" src="/spock.png" />
+            </a>
+            <a id="you-lizard">
+              <img class="image-choice" src="/lizard.png" />
+            </a>
           </div>
           <hr />
-          <h2>my choice is</h2>
+          <h2>Computer choice is</h2>
           <div class="images-container " id="mine">
             <img
               id="paper"
               class="image-choice"
-              src="https://i.ibb.co/F57DdkV/paperyou.png"
+              src="/paper.png"
             />
             <img
               id="rock"
               class="image-choice"
-              src="https://i.ibb.co/WsfbDQ9/rockyou.png"
-            />
+              src="/rock.png"/>
             <img
               id="scissors"
               class="image-choice"
-              src="https://i.ibb.co/x6wqDVp/scyou.png"
-            />
+              src="/sc.png"/>
+            <img id="spock" class="image-choice" src="/spock.png" />
+            <img id="lizard" class="image-choice" src="/lizard.png" />
           </div>
           <p id="xy"></p>
           <p class="lead mb-0">
@@ -167,45 +232,12 @@
 
         <hr />
       </div>
+      <div class="btn btn-info">
+        <div class="moreinfo">More info</div>
+        <div class="moreinfotext">This is more information needed for this tihng</p>
+      </div>
+      <p>11 22 33</p>
     </div>
-    <script>
-      $(document).ready(() => {
-        $("#logo").click(() => {
-          alert("I hope you will enjoy it");
-        });
-        $("#how-work").click(popup);
-        function popup() {
-          $("div.popup").show(1000);
-        }
-        $("#gotit").click(() => {
-          $("div.popup").hide();
-        });
-        var options = ["rock", "paper", "scissors"];
-
-        $("#you-paper").click(buttonClicked);
-        $("#you-rock").click(buttonClicked);
-        $("#you-sciccors").click(buttonClicked);
-        function buttonClicked() {
-          var disabled = function(item) {
-            $(`#${item}`).hide();
-          };
-          disabled("paper");
-          disabled("rock");
-          disabled("scissors");
-          var computerPlay = function() {
-            return options[Math.floor(Math.random() * 3)];
-          };
-          var x = computerPlay();
-
-          $(`#${x}`).css("display", "flex");
-          $(`#${x}`).css("justifyContent", "center");
-          var result = $("#result");
-          if ($(this) == $(`#you-${x}`)) {
-            $("<p><He mate it's a tie/p>").appendTo("#result");
-          }
-        }
-      });
-    </script>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
