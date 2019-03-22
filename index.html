@@ -103,34 +103,114 @@
           var computerPlay = function() {
             return options[Math.floor(Math.random() * 5)];
           };
-          var x = computerPlay();
+           x = computerPlay();
           $(`#${x}`).css("display", "flex");
           $(`#${x}`).css("justifyContent", "center");
-          var result = $("#result");
-          if (this=="#you-paper" ){
+           result = $("#result");
+           youWin=function(){   $("<p>You win</p>").appendTo("#result")}
+           youLose=function(){ $("<p>You lose </p>").appendTo("#result")}
+           itTie=function(){  $("<p>It is a tie</p>").appendTo("#result")}
+          $("#you-paper").click(()=> {
+             $("#result").empty()
             switch (x){
             case "paper":
-             $("<p>Hey mate it's a tie</p>").appendTo("#result")
+            itTie()
             break;
             case "rock":
-            $("<p>You win this one</p>").appendTo("#result")
+            youWin()
             break;
             case "scissors":
-            $("<p>You lost it   </p>").appendTo("#result")
+            youLose()
             break;
               case "spock":
-            $("<p>You win here</p>").appendTo("#result")
+            youWin()
             break;
               case "lizard":
-            $("<p>You lost it here </p>").appendTo("#result")
+            youLose()
             break;
-          }
-          }
+          }});
+          $("#you-rock").click(() => {
+          $("#result").empty()
+          switch (x) {
+            case "paper":
+              youLose()
+              break;
+            case "rock":
+              itTie()
+              break;
+            case "scissors":
+              youWin()
+              break;
+            case "spock":
+              youLose()
+              break;
+            case "lizard":
+              youWin()
+              break;
+          }})
+         $("#you-sciccors").click(() => {
+         $("#result").empty()
+         switch (x) {
+          case "paper":
+            youWin()
+            break;
+          case "rock":
+            youLose()
+            break;
+          case "scissors":
+            itTie()
+            break;
+          case "spock":
+            youLose()
+            break;
+          case "lizard":
+            youWin()
+            break;
+        }})
+         $("#you-spock").click(() => {
+         $("#result").empty()
+         switch (x) {
+          case "paper":
+            youLose()
+            break;
+          case "rock":
+            youWin()
+            break;
+          case "scissors":
+            youWin()
+            break;
+          case "spock":
+            itTie()
+            break;
+          case "lizard":
+            youLose()
+            break;
+            }})
+         $("#you-lizard").click(() => {
+         $("#result").empty()
+         switch (x) {
+          case "paper":
+            youWin()
+            break;
+          case "rock":
+            youLose()
+            break;
+          case "scissors":
+           youLose()
+            break;
+          case "spock":
+            youWin()
+            break;
+          case "lizard":
+            itTie()
+            break;
+            }})
+        }
           // if ($("#you-paper").is(":visible") && x == "paper") {
           //   $("<p>He mate it's a tie</p>").appendTo("#result");
           // }
-           
-        }
+          
+        
         $(".btn-info").click(() => {
           $(".moreinfotext").show(2000);
         });
