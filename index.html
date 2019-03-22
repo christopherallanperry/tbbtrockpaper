@@ -107,9 +107,29 @@
           $(`#${x}`).css("display", "flex");
           $(`#${x}`).css("justifyContent", "center");
           var result = $("#result");
-          if ($(this)== $(`#${x}`)) {
-         $("<p>He mate it's a tie</p>").appendTo("#result");
+          if (this=="#you-paper" ){
+            switch (x){
+            case "paper":
+             $("<p>Hey mate it's a tie</p>").appendTo("#result")
+            break;
+            case "rock":
+            $("<p>You win this one</p>").appendTo("#result")
+            break;
+            case "scissors":
+            $("<p>You lost it   </p>").appendTo("#result")
+            break;
+              case "spock":
+            $("<p>You win here</p>").appendTo("#result")
+            break;
+              case "lizard":
+            $("<p>You lost it here </p>").appendTo("#result")
+            break;
           }
+          }
+          // if ($("#you-paper").is(":visible") && x == "paper") {
+          //   $("<p>He mate it's a tie</p>").appendTo("#result");
+          // }
+           
         }
         $(".btn-info").click(() => {
           $(".moreinfotext").show(2000);
