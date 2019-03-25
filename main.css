@@ -1,0 +1,49 @@
+.image {
+  width: 70%;
+}
+nav h2 {
+  color: grey;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.images-container {
+  display: flex;
+}
+.image-choice {
+  width: 150px;
+  margin: 20px;
+}
+.containers {
+  display: flex;
+}
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+
+  width: 50%;
+  margin-left: 5%;
+}
+iframe {
+  margin-top: 10px;
+}
+
+#mine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#black {
+  color: black;
+}
+#scissors,
+#rock,
+#paper,
+#spock,
+#lizard {
+  display: none;
+}
+.moreinfotext {
+  display: none;
+}

@@ -3,219 +3,25 @@
   <title>Rock Paper scissors Lizard Spock</title>
   <head>
     <meta charset="UTF-8" />
-    <meta name="" content="" />
-    <meta name="author" content="" />
+    <meta name="author" content="Ahmad" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="" rel="stylesheet" type="text/css" />
+    <!-- adding Bootstrap -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
-    <style>
-      .image {
-        width: 70%;
-      }
-      nav h2 {
-        color: grey;
-        display: flex;
-        justify-content: center;
-        margin: 20px;
-      }
-      .images-container {
-        display: flex;
-        /* justify-content: space-between; */
-      }
-      .image-choice {
-        width: 60%;
-        margin: 20px;
-      }
-      .containers {
-        display: flex;
-      }
-      .popup {
-      
-        display: none;
-        position: fixed;
-        z-index: 1000;
- 
-        width: 50%;
-        margin-left: 5%
-      
-      }
-      iframe {
-        margin-top: 10px;
-      }
-
-      #mine {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-      #scissors,
-      #rock,
-      #paper,
-      #spock,
-      #lizard {
-        display: none;
-      }
-      .moreinfotext {
-        display: none;
-      }
-    </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 1 -->
+    <!-- Adding personal styles-->
+    <link rel="stylesheet" href="/main.css" type="text/css" />
+    <!-- adding jQuery through google CDN -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(document).ready(() => {
-    
-        $("#logo").click(() => {
-          alert("I hope you will enjoy it");
-        });
-        $("#how-work").click(popup);
-        function popup() {
-          $("div.popup").fadeIn(1000);
-        }
-        $("#gotit").click(() => {
-          $("div.popup").slideUp(1000);
-        });
-        var options = ["rock", "paper", "scissors","spock","lizard"];
-
-        $("#you-paper").click(buttonClicked);
-        $("#you-rock").click(buttonClicked);
-        $("#you-sciccors").click(buttonClicked);
-        $("#you-spock").click(buttonClicked);
-        $("#you-lizard").click(buttonClicked);
-        function buttonClicked() {
-          var disabled = function(item) {
-            $(`#${item}`).hide();
-          };
-           $("#result").empty()
-          disabled("paper");
-          disabled("rock");
-          disabled("scissors");
-          disabled("spock");
-          disabled("lizard");
-          var computerPlay = function() {
-            return options[Math.floor(Math.random() * 5)];
-          };
-           x = computerPlay();
-          $(`#${x}`).css("display", "flex");
-          $(`#${x}`).css("justifyContent", "center");
-           result = $("#result");
-           youWin=function(){   $("<p>You win</p>").appendTo("#result")}
-           youLose=function(){ $("<p>You lose </p>").appendTo("#result")}
-           itTie=function(){  $("<p>It is a tie</p>").appendTo("#result")}
-          $("#you-paper").click(()=> {
-             $("#result").empty()
-            switch (x){
-            case "paper":
-            itTie()
-            break;
-            case "rock":
-            youWin()
-            break;
-            case "scissors":
-            youLose()
-            break;
-              case "spock":
-            youWin()
-            break;
-              case "lizard":
-            youLose()
-            break;
-          }});
-          $("#you-rock").click(() => {
-          $("#result").empty()
-          switch (x) {
-            case "paper":
-              youLose()
-              break;
-            case "rock":
-              itTie()
-              break;
-            case "scissors":
-              youWin()
-              break;
-            case "spock":
-              youLose()
-              break;
-            case "lizard":
-              youWin()
-              break;
-          }})
-         $("#you-sciccors").click(() => {
-         $("#result").empty()
-         switch (x) {
-          case "paper":
-            youWin()
-            break;
-          case "rock":
-            youLose()
-            break;
-          case "scissors":
-            itTie()
-            break;
-          case "spock":
-            youLose()
-            break;
-          case "lizard":
-            youWin()
-            break;
-        }})
-         $("#you-spock").click(() => {
-         $("#result").empty()
-         switch (x) {
-          case "paper":
-            youLose()
-            break;
-          case "rock":
-            youWin()
-            break;
-          case "scissors":
-            youWin()
-            break;
-          case "spock":
-            itTie()
-            break;
-          case "lizard":
-            youLose()
-            break;
-            }})
-         $("#you-lizard").click(() => {
-         $("#result").empty()
-         switch (x) {
-          case "paper":
-            youWin()
-            break;
-          case "rock":
-            youLose()
-            break;
-          case "scissors":
-           youLose()
-            break;
-          case "spock":
-            youWin()
-            break;
-          case "lizard":
-            itTie()
-            break;
-            }})
-        }
-          // if ($("#you-paper").is(":visible") && x == "paper") {
-          //   $("<p>He mate it's a tie</p>").appendTo("#result");
-          // }
-          
-        
-        $(".btn-info").click(() => {
-          $(".moreinfotext").show(2000);
-        });
-      });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -266,7 +72,7 @@
         </div>
       </div>
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
+        <div class="px-0">
           <h2 class="display-4 font-italic">
             Rock, Paper, Scissors, Lizard, Spock
             <a id="how-work" href="#">how it works</a>
@@ -278,21 +84,13 @@
           <h2>Your choice is:</h2>
           <div class="images-container">
             <a id="you-paper">
-              <img
-                class="image-choice"
-                src="/paper.png"
-              />
+              <img class="image-choice" src="/paper.png" />
             </a>
             <a id="you-rock">
-              <img
-                class="image-choice"
-                src="/rock.png"
-              />
+              <img class="image-choice" src="/rock.png" />
             </a>
             <a id="you-sciccors">
-              <img
-                class="image-choice"
-                src="/sc.png"              />
+              <img class="image-choice" src="/sc.png" />
             </a>
             <a id="you-spock">
               <img class="image-choice" src="/spock.png" />
@@ -304,26 +102,12 @@
           <hr />
           <h2>Computer choice is</h2>
           <div class="images-container " id="mine">
-            <img
-              id="paper"
-              class="image-choice"
-              src="/paper.png"
-            />
-            <img
-              id="rock"
-              class="image-choice"
-              src="/rock.png"/>
-            <img
-              id="scissors"
-              class="image-choice"
-              src="/sc.png"/>
+            <img id="paper" class="image-choice" src="/paper.png" />
+            <img id="rock" class="image-choice" src="/rock.png" />
+            <img id="scissors" class="image-choice" src="/sc.png" />
             <img id="spock" class="image-choice" src="/spock.png" />
             <img id="lizard" class="image-choice" src="/lizard.png" />
           </div>
-          <p id="xy"></p>
-          <p class="lead mb-0">
-            <a href="#" class="text-white font-weight-bold"> </a>
-          </p>
         </div>
       </div>
 
@@ -332,11 +116,19 @@
 
         <hr />
       </div>
-      <div class="btn btn-info">
+      <div class="btn btn-success">
         <div class="moreinfo">More info</div>
-        <div class="moreinfotext">This is more information needed for this tihng</p>
+        <p class="moreinfotext">
+          Ask me here
+          <a
+            id="black"
+            href="https://stackoverflow.com/users/10736560/ashaghel"
+            target="_blank"
+            >Stack OverFlow</a
+          >
+        </p>
       </div>
-      <p>11 22 33</p>
+      <p></p>
     </div>
 
     <script
@@ -349,5 +141,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="/main.js"></script>
   </body>
 </html>
