@@ -1,29 +1,44 @@
-.image {
-  width: 70%;
+body {
+  width: 928px;
+  margin: auto auto;
+  border: 1px solid black;
 }
-nav h2 {
-  color: grey;
+.imageLogo {
+  width: 100%;
+}
+
+.container {
   display: flex;
-  justify-content: center;
-  margin: 20px;
+  flex-direction: column;
+  max-width: 928px;
 }
+
 .images-container {
   display: flex;
+  width: 100%;
 }
 .image-choice {
-  width: 150px;
-  margin: 20px;
+  width: 50%;
 }
 .containers {
   display: flex;
+  flex-direction: column;
+  border: 2px solid #cccccc;
+  box-shadow: 0 2px 2px #cccccc;
+  align-items: center;
+  margin: auto auto;
+  padding: 20px;
+  background-color: whitesmoke;
 }
 .popup {
-  display: none;
   position: fixed;
+  left: 25%;
+  right: 25%;
+  top: 12%;
   z-index: 1000;
-
-  width: 50%;
-  margin-left: 5%;
+  width: 928;
+  opacity: 1;
+  border: 5px solid pink;
 }
 iframe {
   margin-top: 10px;

@@ -1,3 +1,6 @@
+$(document).ready(function() {
+  $(".popup").hide();
+});
 $("#logo").click(() => {
   alert("I hope you will enjoy it");
 });
@@ -142,8 +145,6 @@ function buttonClicked() {
     }
   });
 }
- 
-
 $(".btn-success").click(() => {
   $(".moreinfotext").show(2000);
 });
