@@ -142,9 +142,7 @@ function buttonClicked() {
     }
   });
 }
-// if ($("#you-paper").is(":visible") && x == "paper") {
-//   $("<p>He mate it's a tie</p>").appendTo("#result");
-// }
+ 
 
 $(".btn-success").click(() => {
   $(".moreinfotext").show(2000);
