@@ -169,17 +169,7 @@ $(".btn-success").click(() => {
   $(".moreinfotext").show(2000);
 });
 $(".reset").click(() => {
-  var disabled = function(item) {
-    $(`#${item}`).hide();
-  };
-
+  buttonClicked();
   //emptying the results text place
   $("#result").empty();
-
-  //disabling computer choices
-  disabled("paper");
-  disabled("rock");
-  disabled("scissors");
-  disabled("spock");
-  disabled("lizard");
 });
