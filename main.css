@@ -30,6 +30,7 @@ body {
   padding: 20px;
   background-color: whitesmoke;
 }
+/* for the popup card */
 .popup {
   position: fixed;
   left: 25%;
@@ -51,6 +52,7 @@ iframe {
 #black {
   color: black;
 }
+/* can be displayed as none here or inside the JS file with hide */
 #scissors,
 #rock,
 #paper,
