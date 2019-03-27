@@ -20,16 +20,11 @@ var computerPlay = function() {
   return options[Math.floor(Math.random() * 5)];
 };
 
-//adding same function to all user choice images on click
-// $("#you-paper").click(buttonClicked);
-// $("#you-rock").click(buttonClicked);
-// $("#you-sciccors").click(buttonClicked);
-// $("#you-spock").click(buttonClicked);
-// $("#you-lizard").click(buttonClicked);
 //The main function that show the computer choice
 function buttonClicked() {
   var disabled = function(item) {
     $(`#${item}`).hide();
+    $(`#you-${item}`).fadeTo(100, 1);
   };
 
   //emptying the results text place
@@ -75,6 +70,7 @@ $("#you-paper").click(() => {
       youLose();
       break;
   }
+  $("#you-paper").fadeTo(100, 0.5);
 });
 $("#you-rock").click(() => {
   buttonClicked();
@@ -97,8 +93,9 @@ $("#you-rock").click(() => {
       youWin();
       break;
   }
+  $("#you-rock").fadeTo(100, 0.5);
 });
-$("#you-sciccors").click(() => {
+$("#you-scissors").click(() => {
   buttonClicked();
   let x = computerPlay();
   $(`#${x}`).show();
@@ -119,6 +116,7 @@ $("#you-sciccors").click(() => {
       youWin();
       break;
   }
+  $("#you-scissors").fadeTo(100, 0.5);
 });
 $("#you-spock").click(() => {
   buttonClicked();
@@ -141,6 +139,7 @@ $("#you-spock").click(() => {
       youLose();
       break;
   }
+  $("#you-spock").fadeTo(100, 0.5);
 });
 $("#you-lizard").click(() => {
   buttonClicked();
@@ -163,6 +162,7 @@ $("#you-lizard").click(() => {
       itTie();
       break;
   }
+  $("#you-lizard").fadeTo(100, 0.5);
 });
 
 $(".btn-success").click(() => {
